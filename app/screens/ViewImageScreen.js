@@ -3,7 +3,7 @@ import { View, StyleSheet, Image } from "react-native";
 import Constants from "expo-constants";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import * as colors from "../colors";
+import * as colors from "../config/colors";
 
 function ViewImageScreen(props) {
   return (
