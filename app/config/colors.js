@@ -1,2 +1,6 @@
-export const primary = "#077B88";
-export const secondary = "#FB9F8B";
+export default {
+  primary: "#fc5c65",
+  secondary: "#4ecdc4",
+  black: "#000",
+  white: "#fff",
+};
