@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FlatList, View, StyleSheet } from "react-native";
+import { FlatList, View, StyleSheet, ImageComponent } from "react-native";
+import App from "../../App";
 
 import ListItem from "../components/ListItem";
 import ListItemActions from "../components/ListItemActions";
@@ -51,6 +52,7 @@ function MessagesScreen(props) {
           renderItem={({ item }) => (
             <ListItem
               image={item.image}
+              ImageComponent={<AppIcon name="email"></AppIcon>}
               onPress={() => console.log("Hey!")}
               renderRightActions={() => {
                 return (

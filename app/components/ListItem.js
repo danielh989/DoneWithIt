@@ -6,15 +6,23 @@ import { fontSizes, colors } from "../config/params";
 import AppText from "./AppText";
 import ListItemActions from "./ListItemActions";
 
-function ListItem({ title, subtitle, image, onPress, renderRightActions }) {
+function ListItem({
+  title,
+  subtitle,
+  ImageComponent,
+  image,
+  onPress,
+  renderRightActions,
+}) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.lightgrey} onPress={onPress}>
         <View style={styles.container}>
-          <Image style={styles.image} source={image}></Image>
+          {ImageComponent}
+          {image && <Image style={styles.image} source={image} />}
           <View style={styles.textContainer}>
             <AppText style={styles.title}>{title}</AppText>
-            <AppText style={styles.subtitle}>{subtitle}</AppText>
+            {subtitle && <AppText style={styles.subtitle}>{subtitle}</AppText>}
           </View>
         </View>
       </TouchableHighlight>
@@ -28,7 +36,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   image: { height: 60, width: 60, borderRadius: 30 },
-  textContainer: { marginLeft: 15 },
+  textContainer: { marginLeft: 15, justifyContent: "center" },
   title: { fontSize: fontSizes.medium },
   subtitle: { color: colors.grey },
 });

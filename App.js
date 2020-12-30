@@ -3,15 +3,18 @@ import { StyleSheet } from "react-native";
 
 import MessagesScreen from "./app/screens/MessagesScreen";
 import AppIcon from "./app/components/AppIcon";
+import Screen from "./app/components/Screen";
+import ListItem from "./app/components/ListItem";
 
 export default function App() {
   return (
-    <AppIcon
-      name="trash-can"
-      size={50}
-      backgroundColor="tomato"
-      iconColor="white"
-    />
+    <Screen>
+      <ListItem
+        ImageComponent={<AppIcon name="email"></AppIcon>}
+        subtitle="And Subtitle"
+        title="The Title"
+      ></ListItem>
+    </Screen>
   );
 }
 
