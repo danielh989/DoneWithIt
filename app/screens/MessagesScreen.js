@@ -33,9 +33,7 @@ function MessagesScreen(props) {
               title={item.title}
               subtitle={item.description}
               image={item.image}
-              renderRightActions={() => {
-                return <ListItemActions></ListItemActions>;
-              }}
+              renderRightActions={ListItemActions}
               onPress={() => console.log("Hey!")}
             ></ListItem>
           )}
