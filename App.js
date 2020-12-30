@@ -5,7 +5,14 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import AppIcon from "./app/components/AppIcon";
 
 export default function App() {
-  return <AppIcon name="trash-can" size={20} color="tomato" />;
+  return (
+    <AppIcon
+      name="trash-can"
+      size={50}
+      backgroundColor="tomato"
+      iconColor="white"
+    />
+  );
 }
 
 const styles = StyleSheet.create({
