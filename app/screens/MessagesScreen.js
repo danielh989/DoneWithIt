@@ -1,8 +1,10 @@
 import React from "react";
 import { FlatList, View, StyleSheet } from "react-native";
-import Constants from "expo-constants";
 
 import ListItem from "../components/ListItem";
+import ListItemSeparator from "../components/ListItemSeparator";
+import Screen from "../components/Screen";
+import { colors } from "../config/params";
 
 function MessagesScreen(props) {
   const messages = [
@@ -20,26 +22,28 @@ function MessagesScreen(props) {
     },
   ];
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={messages}
-        keyExtractor={(message) => message.id.toString()}
-        renderItem={({ item }) => (
-          <ListItem
-            title={item.title}
-            subtitle={item.description}
-            image={item.image}
-          ></ListItem>
-        )}
-      ></FlatList>
-    </View>
+    <Screen>
+      <View>
+        <FlatList
+          data={messages}
+          keyExtractor={(message) => message.id.toString()}
+          renderItem={({ item }) => (
+            <ListItem
+              title={item.title}
+              subtitle={item.description}
+              image={item.image}
+              onPress={() => console.log("Hey!")}
+            ></ListItem>
+          )}
+          ItemSeparatorComponent={() => {
+            return <ListItemSeparator />;
+          }}
+        ></FlatList>
+      </View>
+    </Screen>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    marginTop: Constants.statusBarHeight,
-  },
-});
+const styles = StyleSheet.create({});
 
 export default MessagesScreen;

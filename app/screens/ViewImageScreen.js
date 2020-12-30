@@ -3,25 +3,27 @@ import { View, StyleSheet, Image } from "react-native";
 import Constants from "expo-constants";
 
 import { colors } from "../config/params";
+import Screen from "../components/Screen";
 
 function ViewImageScreen(props) {
   return (
-    <View style={styles.container}>
-      <View style={styles.buttonContainer}>
-        <View style={styles.closeButton}></View>
-        <View style={styles.deleteButton}></View>
+    <Screen>
+      <View style={styles.container}>
+        <View style={styles.buttonContainer}>
+          <View style={styles.closeButton}></View>
+          <View style={styles.deleteButton}></View>
+        </View>
+        <Image
+          style={styles.image}
+          source={require("../assets/chair.jpg")}
+        ></Image>
       </View>
-      <Image
-        style={styles.image}
-        source={require("../assets/chair.jpg")}
-      ></Image>
-    </View>
+    </Screen>
   );
 }
 const styles = StyleSheet.create({
   container: { alignItems: "center" },
   buttonContainer: {
-    marginTop: Constants.statusBarHeight,
     flexDirection: "row",
     width: "90%",
     justifyContent: "space-between",

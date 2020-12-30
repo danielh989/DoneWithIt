@@ -1,6 +1,5 @@
 import React from "react";
 import { View, StyleSheet, Image } from "react-native";
-import Constants from "expo-constants";
 
 import { colors, fontSizes } from "../config/params";
 import AppText from "../components/AppText";
@@ -22,7 +21,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 15,
     height: 260,
-    marginTop: Constants.statusBarHeight,
     margin: 15,
     overflow: "hidden",
   },

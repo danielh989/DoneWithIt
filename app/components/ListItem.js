@@ -1,25 +1,32 @@
 import React from "react";
-import { View, StyleSheet, Image } from "react-native";
-import Constants from "expo-constants";
+import {
+  View,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  TouchableHighlight,
+} from "react-native";
 
 import { fontSizes, colors } from "../config/params";
 import AppText from "./AppText";
 
-function ListItem({ title, subtitle, image }) {
+function ListItem({ title, subtitle, image, onPress }) {
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={image}></Image>
-      <View style={styles.textContainer}>
-        <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.subtitle}>{subtitle}</AppText>
+    <TouchableHighlight underlayColor={colors.lightgrey} onPress={onPress}>
+      <View style={styles.container}>
+        <Image style={styles.image} source={image}></Image>
+        <View style={styles.textContainer}>
+          <AppText style={styles.title}>{title}</AppText>
+          <AppText style={styles.subtitle}>{subtitle}</AppText>
+        </View>
       </View>
-    </View>
+    </TouchableHighlight>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 12,
+    padding: 15,
     flexDirection: "row",
   },
   image: { height: 60, width: 60, borderRadius: 30 },
