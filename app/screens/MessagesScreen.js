@@ -33,7 +33,13 @@ function MessagesScreen(props) {
               title={item.title}
               subtitle={item.description}
               image={item.image}
-              renderRightActions={ListItemActions}
+              renderRightActions={() => {
+                return (
+                  <ListItemActions
+                    onPress={() => console.log("Deleted item ", item.id)}
+                  ></ListItemActions>
+                );
+              }}
               onPress={() => console.log("Hey!")}
             ></ListItem>
           )}

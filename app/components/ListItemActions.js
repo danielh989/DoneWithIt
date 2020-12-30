@@ -1,13 +1,20 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
 import { colors } from "../config/params";
 
-function ListItemActions(props) {
+function ListItemActions({ onPress }) {
   return (
     <View style={styles.actions}>
-      <MaterialCommunityIcons name="trash-can" size={35} color={colors.white} />
+      <TouchableWithoutFeedback style={styles.actions} onPress={onPress}>
+        <MaterialCommunityIcons
+          name="trash-can"
+          size={35}
+          color={colors.white}
+        />
+      </TouchableWithoutFeedback>
     </View>
   );
 }
