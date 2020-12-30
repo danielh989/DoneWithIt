@@ -1,9 +1,8 @@
 import React from "react";
 import { View, StyleSheet, Image } from "react-native";
 import Constants from "expo-constants";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import colors from "../config/colors";
+import { colors } from "../config/params";
 
 function ViewImageScreen(props) {
   return (

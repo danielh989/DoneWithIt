@@ -1,8 +1,8 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import Constants from "expo-constants";
 
-import colors from "../config/colors";
+import { colors, fontSizes } from "../config/params";
 import AppText from "../components/AppText";
 
 function Card({ title, subtitle, image }) {
@@ -27,11 +27,11 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   image: { width: "100%", height: "75%" },
-  textContainer: { backgroundColor: colors.white, margin: 15 },
-  title: { color: colors.black, fontSize: 15 },
+  textContainer: { backgroundColor: colors.white, margin: fontSizes.medium },
+  title: { color: colors.black, fontSize: fontSizes.medium },
   subtitle: {
     color: colors.secondary,
-    fontSize: 14,
+    fontSize: fontSizes.small,
     marginTop: 4,
     fontWeight: "bold",
   },
