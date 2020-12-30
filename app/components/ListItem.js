@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet, Image } from "react-native";
+import Constants from "expo-constants";
 
 import { fontSizes, colors } from "../config/params";
 import AppText from "./AppText";
@@ -17,7 +18,10 @@ function ListItem({ title, subtitle, image }) {
 }
 
 const styles = StyleSheet.create({
-  container: { margin: 20, flexDirection: "row" },
+  container: {
+    marginBottom: 12,
+    flexDirection: "row",
+  },
   image: { height: 60, width: 60, borderRadius: 30 },
   textContainer: { marginLeft: 15 },
   title: { fontSize: fontSizes.medium },

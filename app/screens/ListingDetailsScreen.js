@@ -16,25 +16,28 @@ function ListingDetailsScreen(props) {
         <AppText style={styles.title}>Green jacket for sale!</AppText>
         <AppText style={styles.price}>$100</AppText>
       </View>
-      <ListItem
-        image={require("../assets/user.jpg")}
-        title="Danielle"
-        subtitle="5 Listings"
-      />
+      <View style={styles.listItem}>
+        <ListItem
+          image={require("../assets/user.jpg")}
+          title="Danielle"
+          subtitle="5 Listings"
+        />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  image: { width: "100%", height: 300 },
   detailContainer: { margin: 15, marginLeft: 20 },
-  title: { fontSize: fontSizes.large },
+  image: { width: "100%", height: 300 },
+  listItem: { marginLeft: 15 },
   price: {
     color: colors.secondary,
     fontSize: fontSizes.large,
     fontWeight: "bold",
     marginTop: 6,
   },
+  title: { fontSize: fontSizes.large },
 });
 
 export default ListingDetailsScreen;
