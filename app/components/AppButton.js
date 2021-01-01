@@ -7,7 +7,7 @@ function AppButton({ title, onPress, color = "primary" }) {
   console.log(color);
   return (
     <TouchableOpacity
-      style={[styles.button, { backgroundColor: colors[color] }]}
+      style={[styles.button, { backgroundColor: params.colors[color] }]}
       onPress={onPress}
     >
       <Text style={styles.text}>{title}</Text>
