@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 
-import { colors } from "../config/params";
+import params from "../config/params";
 
 function ListItemActions({ onPress }) {
   return (
@@ -12,7 +12,7 @@ function ListItemActions({ onPress }) {
         <MaterialCommunityIcons
           name="trash-can"
           size={35}
-          color={colors.white}
+          color={params.colors.white}
         />
       </TouchableWithoutFeedback>
     </View>

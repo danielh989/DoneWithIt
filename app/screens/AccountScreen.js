@@ -12,20 +12,20 @@ function AccountScreen(props) {
       title: "My Listings",
       icon: {
         name: "format-list-bulleted",
-        backgroundColor: colors.primary,
+        backgroundColor: params.colors.primary,
       },
     },
     {
       title: "My Messages",
       icon: {
         name: "email",
-        backgroundColor: colors.secondary,
+        backgroundColor: params.colors.secondary,
       },
     },
   ];
   return (
-    <Screen style={{ backgroundColor: colors.lightgrey }}>
-      <View style={{ backgroundColor: colors.white }}>
+    <Screen style={{ backgroundColor: params.colors.lightgrey }}>
+      <View style={{ backgroundColor: params.colors.white }}>
         <ListItem
           title="Danielle Johns"
           subtitle="danielle@aol.com"
@@ -53,7 +53,7 @@ function AccountScreen(props) {
           }}
         />
       </View>
-      <View style={{ backgroundColor: colors.white }}>
+      <View style={{ backgroundColor: params.colors.white }}>
         <ListItem
           title="Log Out"
           ImageComponent={
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   listContainer: {
     marginTop: 10,
     marginBottom: 10,
-    backgroundColor: colors.white,
+    backgroundColor: params.colors.white,
   },
 });
 

@@ -2,7 +2,7 @@ import React from "react";
 import { TextInput, View, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import { colors } from "../config/params";
+import params from "../config/params";
 function AppTextInput({ children, iconName = "email", color = "black" }) {
   console.log(children);
   return (
@@ -21,7 +21,7 @@ function AppTextInput({ children, iconName = "email", color = "black" }) {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    backgroundColor: colors.lightgrey,
+    backgroundColor: params.colors.lightgrey,
     borderRadius: 10,
     height: 35,
     flexDirection: "row",

@@ -3,7 +3,7 @@ import { Image, View, StyleSheet } from "react-native";
 
 import AppText from "../components/AppText";
 import ListItem from "../components/ListItem";
-import { colors, fontSizes } from "../config/params";
+import params from "../config/params";
 
 function ListingDetailsScreen(props) {
   return (
@@ -32,12 +32,12 @@ const styles = StyleSheet.create({
   image: { width: "100%", height: 300 },
   listItem: { marginLeft: 15 },
   price: {
-    color: colors.secondary,
-    fontSize: fontSizes.large,
+    color: params.colors.secondary,
+    fontSize: params.fontSizes.large,
     fontWeight: "bold",
     marginTop: 6,
   },
-  title: { fontSize: fontSizes.large },
+  title: { fontSize: params.fontSizes.large },
 });
 
 export default ListingDetailsScreen;

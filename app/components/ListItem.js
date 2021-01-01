@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, Image, TouchableHighlight } from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 
-import { fontSizes, colors } from "../config/params";
+import params from "../config/params";
 import AppText from "./AppText";
 import ListItemActions from "./ListItemActions";
 
@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
   },
   image: { height: 60, width: 60, borderRadius: 30 },
   textContainer: { marginLeft: 15, justifyContent: "center" },
-  title: { fontSize: fontSizes.medium },
-  subtitle: { color: colors.grey },
+  title: { fontSize: params.fontSizes.medium },
+  subtitle: { color: params.colors.grey },
 });
 
 export default ListItem;

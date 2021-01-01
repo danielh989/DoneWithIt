@@ -6,7 +6,7 @@ import ListItem from "../components/ListItem";
 import ListItemActions from "../components/ListItemActions";
 import ListItemSeparator from "../components/ListItemSeparator";
 import Screen from "../components/Screen";
-import { colors } from "../config/params";
+import params from "../config/params";
 
 const initialMessages = [
   {

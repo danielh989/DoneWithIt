@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Image } from "react-native";
 
-import { colors, fontSizes } from "../config/params";
+import params from "../config/params";
 import AppText from "../components/AppText";
 
 function Card({ title, subtitle, image }) {
@@ -18,18 +18,21 @@ function Card({ title, subtitle, image }) {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: colors.white,
+    backgroundColor: params.colors.white,
     borderRadius: 15,
     height: 260,
     margin: 15,
     overflow: "hidden",
   },
   image: { width: "100%", height: "75%" },
-  textContainer: { backgroundColor: colors.white, margin: fontSizes.medium },
-  title: { color: colors.black, fontSize: fontSizes.medium },
+  textContainer: {
+    backgroundColor: params.colors.white,
+    margin: params.fontSizes.medium,
+  },
+  title: { color: params.colors.black, fontSize: params.fontSizes.medium },
   subtitle: {
-    color: colors.secondary,
-    fontSize: fontSizes.small,
+    color: params.colors.secondary,
+    fontSize: params.fontSizes.small,
     marginTop: 4,
     fontWeight: "bold",
   },

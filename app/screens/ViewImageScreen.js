@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, Image } from "react-native";
 import Constants from "expo-constants";
 
-import { colors } from "../config/params";
+import params from "../config/params";
 import Screen from "../components/Screen";
 
 function ViewImageScreen(props) {
@@ -29,12 +29,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   closeButton: {
-    backgroundColor: colors.secondary,
+    backgroundColor: params.colors.secondary,
     height: 50,
     width: 50,
   },
   deleteButton: {
-    backgroundColor: colors.primary,
+    backgroundColor: params.colors.primary,
     height: 50,
     width: 50,
   },
