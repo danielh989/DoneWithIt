@@ -3,12 +3,7 @@ import { TextInput, View, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import params from "../config/params";
-function AppTextInput({
-  children,
-  iconName = "email",
-  color = "black",
-  ...otherProps
-}) {
+function AppTextInput({ children, iconName, color = "black", ...otherProps }) {
   return (
     <View style={styles.container}>
       <MaterialCommunityIcons

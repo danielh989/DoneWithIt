@@ -13,7 +13,7 @@ import AppButton from "../components/AppButton";
 import params from "../config/params";
 import { FlatList } from "react-native-gesture-handler";
 function AppPicker({
-  iconName = "email",
+  iconName,
   items,
   color: iconColor = "black",
   placeholder = "Category",
@@ -53,7 +53,7 @@ function AppPicker({
           <AppButton onPress={() => setModalVisible(false)} title="Close" />
           <FlatList
             data={items}
-            keyExtractor={(item) => item.value}
+            keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
               <AppPickerItem
                 onPress={() => {
