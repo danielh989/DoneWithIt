@@ -9,7 +9,6 @@ function AppTextInput({
   color = "black",
   ...otherProps
 }) {
-  console.log(children);
   return (
     <View style={styles.container}>
       <MaterialCommunityIcons

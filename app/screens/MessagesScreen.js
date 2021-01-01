@@ -53,7 +53,7 @@ function MessagesScreen(props) {
             <ListItem
               image={item.image}
               ImageComponent={<AppIcon name="email"></AppIcon>}
-              onPress={() => console.log("Hey!")}
+              onPress={}
               renderRightActions={() => {
                 return (
                   <ListItemActions
