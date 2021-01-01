@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import SubmitButton from "../components/SubmitButton";
 import Screen from "../components/Screen";
 import AppFormField from "../components/AppFormField";
+import AppForm from "../components/AppForm";
 
 function LoginScreen(props) {
   const validationSchema = Yup.object().shape({
@@ -13,37 +14,31 @@ function LoginScreen(props) {
   });
   return (
     <Screen>
-      <Formik
+      <AppForm
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => console.log({ values })}
         validationSchema={validationSchema}
       >
-        {({ handleSubmit }) => {
-          return (
-            <>
-              <AppFormField
-                autoCapitalize="none"
-                autoCorrect={false}
-                iconName="email"
-                keyboardType="email-address"
-                name="email"
-                placeholder="Email"
-                textContentType="emailAddress"
-              />
-              <AppFormField
-                autoCapitalize="none"
-                autoCorrect={false}
-                iconName="lock"
-                name="password"
-                placeholder="Password"
-                secureTextEntry
-                textContentType="password"
-              />
-              <SubmitButton title="Login" />
-            </>
-          );
-        }}
-      </Formik>
+        <AppFormField
+          autoCapitalize="none"
+          autoCorrect={false}
+          iconName="email"
+          keyboardType="email-address"
+          name="email"
+          placeholder="Email"
+          textContentType="emailAddress"
+        />
+        <AppFormField
+          autoCapitalize="none"
+          autoCorrect={false}
+          iconName="lock"
+          name="password"
+          placeholder="Password"
+          secureTextEntry
+          textContentType="password"
+        />
+        <SubmitButton title="Login" />
+      </AppForm>
     </Screen>
   );
 }
