@@ -3,7 +3,12 @@ import { TextInput, View, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import params from "../config/params";
-function AppTextInput({ children, iconName = "email", color = "black" }) {
+function AppTextInput({
+  children,
+  iconName = "email",
+  color = "black",
+  ...otherProps
+}) {
   console.log(children);
   return (
     <View style={styles.container}>
@@ -13,7 +18,7 @@ function AppTextInput({ children, iconName = "email", color = "black" }) {
         style={styles.icon}
         size={20}
       ></MaterialCommunityIcons>
-      <TextInput>{children}</TextInput>
+      <TextInput {...otherProps}>{children}</TextInput>
     </View>
   );
 }
