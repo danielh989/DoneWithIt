@@ -2,7 +2,7 @@ import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
-import AppButton from "../components/AppButton";
+import SubmitButton from "../components/SubmitButton";
 import Screen from "../components/Screen";
 import AppFormField from "../components/AppFormField";
 
@@ -39,7 +39,7 @@ function LoginScreen(props) {
                 secureTextEntry
                 textContentType="password"
               />
-              <AppButton onPress={handleSubmit} title="Login" />
+              <SubmitButton title="Login" />
             </>
           );
         }}
