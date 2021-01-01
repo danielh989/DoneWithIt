@@ -1,10 +1,15 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 
-import ListingsScreen from "./app/screens/ListingsScreen";
+import AppTextInput from "./app/components/AppTextInput";
+import Screen from "./app/components/Screen";
 
 export default function App() {
-  return <ListingsScreen></ListingsScreen>;
+  return (
+    <Screen>
+      <AppTextInput></AppTextInput>
+    </Screen>
+  );
 }
 
 const styles = StyleSheet.create({});
