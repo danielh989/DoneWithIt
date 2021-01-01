@@ -2,23 +2,30 @@ import React from "react";
 import { TextInput, View, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+import AppText from "./AppText";
 import params from "../config/params";
-function AppTextInput({
-  children,
+function AppPicker({
   iconName = "email",
-  color = "black",
+  color: iconColor = "black",
+  placeholder = "Category",
   ...otherProps
 }) {
-  console.log(children);
   return (
     <View style={styles.container}>
+      {iconName && (
+        <MaterialCommunityIcons
+          color={iconColor}
+          name={iconName}
+          style={styles.icon}
+          size={20}
+        ></MaterialCommunityIcons>
+      )}
+      <AppText style={styles.text}>{placeholder}</AppText>
       <MaterialCommunityIcons
-        color={color}
-        name={iconName}
-        style={styles.icon}
+        color={iconColor}
+        name="chevron-down"
         size={20}
       ></MaterialCommunityIcons>
-      <TextInput {...otherProps}>{children}</TextInput>
     </View>
   );
 }
@@ -30,13 +37,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     height: 45,
     flexDirection: "row",
-    paddingLeft: 15,
+    paddingHorizontal: 15,
     margin: 15,
     marginVertical: 10,
   },
   icon: {
     marginRight: 10,
   },
+  text: {
+    flex: 1,
+  },
 });
 
-export default AppTextInput;
+export default AppPicker;
