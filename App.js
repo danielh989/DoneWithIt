@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 
-import RegisterScreen from "./app/screens/RegisterScreen";
+import MessagesScreen from "./app/screens/MessagesScreen";
 
 export default function App() {
-  return <RegisterScreen></RegisterScreen>;
+  return <MessagesScreen></MessagesScreen>;
 }
 
 const styles = StyleSheet.create({});

@@ -5,6 +5,7 @@ import App from "../../App";
 import ListItem from "../components/ListItem";
 import ListItemActions from "../components/ListItemActions";
 import ListItemSeparator from "../components/ListItemSeparator";
+import AppIcon from "../components/AppIcon";
 import Screen from "../components/Screen";
 import params from "../config/params";
 
@@ -52,8 +53,7 @@ function MessagesScreen(props) {
           renderItem={({ item }) => (
             <ListItem
               image={item.image}
-              ImageComponent={<AppIcon name="email"></AppIcon>}
-              onPress={}
+              onPress={() => console.log()}
               renderRightActions={() => {
                 return (
                   <ListItemActions
