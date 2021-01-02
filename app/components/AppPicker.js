@@ -18,6 +18,7 @@ function AppPicker({
   color: iconColor = "black",
   placeholder = "Category",
   selectedItem,
+  width,
   onSelectedItem,
 }) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -29,7 +30,7 @@ function AppPicker({
           setModalVisible(true);
         }}
       >
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           {iconName && (
             <MaterialCommunityIcons
               color={iconColor}
