@@ -28,7 +28,7 @@ function ListItem({
             <AppText style={styles.title}>{title}</AppText>
             {subtitle && <AppText style={styles.subtitle}>{subtitle}</AppText>}
           </View>
-          <MaterialCommunityIcons size={25} name="chevron-down" />
+          <MaterialCommunityIcons size={25} name="chevron-right" />
         </View>
       </TouchableHighlight>
     </Swipeable>
