@@ -8,6 +8,6 @@ function AppText({ children, style }) {
 }
 
 const styles = StyleSheet.create({
-  text: { fontSize: params.fontSizes.small },
+  text: { fontSize: params.fontSizes.small, color: params.colors.black },
 });
 export default AppText;
