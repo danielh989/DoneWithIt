@@ -1,6 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import * as Yup from "yup";
+import CategoryPickerItem from "../components/CategoryPickerItem";
 
 import {
   AppFormField,
@@ -18,9 +19,14 @@ function ListingEditScreen(props) {
     title: Yup.string().required().min(1).label("Title"),
   });
   const categories = [
-    { label: "Fruits", value: 1 },
-    { label: "Dairy", value: 2 },
-    { label: "Cereals", value: 3 },
+    {
+      label: "Fruits & Vegetables",
+      value: 1,
+      iconName: "email",
+      backgroundColor: "red",
+    },
+    { label: "Dairy", value: 2, iconName: "account", backgroundColor: "green" },
+    { label: "Cereals", value: 3, iconName: "laptop", backgroundColor: "blue" },
   ];
   return (
     <Screen>
@@ -46,6 +52,8 @@ function ListingEditScreen(props) {
           <AppFormPicker
             name="category"
             placeholder="Category"
+            numColumns={3}
+            PickerItemComponent={CategoryPickerItem}
             items={categories}
             width="50%"
           />
