@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import { FlatList, View, StyleSheet, ImageComponent } from "react-native";
-import App from "../../App";
-
 import ListItem from "../components/ListItem";
 import ListItemActions from "../components/ListItemActions";
 import ListItemSeparator from "../components/ListItemSeparator";
-import AppIcon from "../components/AppIcon";
 import Screen from "../components/Screen";
-import params from "../config/params";
 
 const initialMessages = [
   {
