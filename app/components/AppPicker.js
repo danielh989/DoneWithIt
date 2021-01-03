@@ -5,19 +5,22 @@ import {
   Modal,
   TouchableWithoutFeedback,
 } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+import params from "../config/params";
 import AppText from "./AppText";
 import AppPickerItem from "../components/AppPickerItem";
 import AppButton from "../components/AppButton";
-import params from "../config/params";
-import { FlatList } from "react-native-gesture-handler";
+import CategoryPickerItem from "./CategoryPickerItem";
+
 function AppPicker({
   iconName,
   items,
   color: iconColor = "black",
   placeholder = "Category",
   selectedItem,
+  PickerItemComponent = AppPickerItem,
   width,
   onSelectedItem,
 }) {
@@ -60,13 +63,13 @@ function AppPicker({
             data={items}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
-              <AppPickerItem
+              <PickerItemComponent
                 onPress={() => {
                   setModalVisible(false);
                   onSelectedItem(item);
                 }}
                 label={item.label}
-              ></AppPickerItem>
+              ></PickerItemComponent>
             )}
           ></FlatList>
         </View>
@@ -83,7 +86,6 @@ const styles = StyleSheet.create({
     height: 45,
     flexDirection: "row",
     paddingHorizontal: 15,
-    margin: 15,
     marginVertical: 10,
   },
   icon: {
