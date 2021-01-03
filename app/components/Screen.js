@@ -9,7 +9,11 @@ function Screen({ children, style }) {
 }
 
 const styles = StyleSheet.create({
-  container: { paddingTop: Constants.statusBarHeight, flex: 1 },
+  container: {
+    paddingTop: Constants.statusBarHeight,
+    flex: 1,
+    padding: 15,
+  },
 });
 
 export default Screen;

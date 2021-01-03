@@ -10,7 +10,6 @@ function AppTextInput({
   width = "100%",
   ...otherProps
 }) {
-  console.log({ width });
   return (
     <View style={[styles.container, { width }]}>
       <MaterialCommunityIcons
@@ -29,11 +28,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: params.colors.lightgrey,
     borderRadius: 10,
+    marginVertical: 10,
     height: 45,
     flexDirection: "row",
-    paddingLeft: 15,
-    margin: 15,
-    marginVertical: 10,
   },
   icon: {
     marginRight: 10,
