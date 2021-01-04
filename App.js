@@ -1,12 +1,12 @@
-import React from "react";
-import { StyleSheet } from "react-native";
-import ListingEditScreen from "./app/screens/ListingEditScreen";
+import React, { useEffect, useState } from "react";
+import { StyleSheet, Button, Image } from "react-native";
+import * as ImagePicker from "expo-image-picker";
 
-import MessagesScreen from "./app/screens/MessagesScreen";
-import RegisterScreen from "./app/screens/RegisterScreen";
+import Screen from "./app/components/Screen";
+import ImageInput from "./app/components/ImageInput";
 
 export default function App() {
-  return <ListingEditScreen></ListingEditScreen>;
+  return <ImageInput></ImageInput>;
 }
 
 const styles = StyleSheet.create({});
