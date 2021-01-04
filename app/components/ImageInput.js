@@ -1,8 +1,23 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
 import params from "../config/params";
-function ImageInput(props) {
-  return <View style={styles.container}></View>;
+function ImageInput({ imageUri }) {
+  return (
+    <View style={styles.container}>
+      {!imageUri && (
+        <MaterialCommunityIcons
+          name="camera"
+          color="black"
+          size={40}
+        ></MaterialCommunityIcons>
+      )}
+      {imageUri && (
+        <Image source={{ uri: imageUri }} style={styles.image}></Image>
+      )}
+    </View>
+  );
 }
 const styles = StyleSheet.create({
   container: {
@@ -12,6 +27,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     height: 100,
     width: 100,
+    overflow: "hidden",
+  },
+  image: {
+    width: "100%",
+    height: "100%",
   },
 });
 export default ImageInput;
