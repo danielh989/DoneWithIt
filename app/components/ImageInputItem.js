@@ -1,16 +1,20 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import params from "../config/params";
-function ImageInputItem({ iconName, onPress }) {
+function ImageInputItem({ iconName, onPress, uri }) {
+  console.log(uri);
   return (
     <View style={styles.container}>
       <TouchableWithoutFeedback onPress={onPress}>
-        <MaterialCommunityIcons
-          name={iconName}
-          size={40}
-        ></MaterialCommunityIcons>
+        {uri && <Image source={{ uri }}></Image>}
+        {!uri && (
+          <MaterialCommunityIcons
+            name={iconName}
+            size={40}
+          ></MaterialCommunityIcons>
+        )}
       </TouchableWithoutFeedback>
     </View>
   );
