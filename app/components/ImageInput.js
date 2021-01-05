@@ -46,15 +46,15 @@ function ImageInput({ imageUri, onChangeImage }) {
   return (
     <TouchableWithoutFeedback onPress={handlePress}>
       <View style={styles.container}>
+        {imageUri && (
+          <Image source={{ uri: imageUri }} style={styles.image}></Image>
+        )}
         {!imageUri && (
           <MaterialCommunityIcons
             name="camera"
             color="black"
             size={40}
           ></MaterialCommunityIcons>
-        )}
-        {imageUri && (
-          <Image source={{ uri: imageUri }} style={styles.image}></Image>
         )}
       </View>
     </TouchableWithoutFeedback>
