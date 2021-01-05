@@ -1,14 +1,33 @@
 import React from "react";
-import { StyleSheet, Button, Image } from "react-native";
+import { Text, StyleSheet } from "react-native";
 
 import Screen from "./app/components/Screen";
-import ListingEditScreen from "./app/screens/ListingEditScreen";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
-  return (
+  const Tweets = () => (
     <Screen>
-      <ListingEditScreen />
+      <Text>Tweets</Text>
     </Screen>
+  );
+  const TweetDetails = () => (
+    <Screen>
+      <Text>TweetDetails</Text>
+    </Screen>
+  );
+
+  const Stack = createStackNavigator();
+  const StackNavigator = () => (
+    <Stack.Navigator>
+      <Stack.Screen name="Tweets" component={Tweets} />
+      <Stack.Screen name="TweetDetails" component={TweetDetails} />
+    </Stack.Navigator>
+  );
+  return (
+    <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
   );
 }
 
