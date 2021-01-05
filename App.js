@@ -13,7 +13,7 @@ export default function App() {
         <Text>Tweets</Text>
         <Button
           title="View Tweet"
-          onPress={() => navigation.navigate("TweetDetails")}
+          onPress={() => navigation.navigate("TweetDetails", { id: 1 })}
         ></Button>
       </Screen>
     );
@@ -24,9 +24,9 @@ export default function App() {
       <Link></Link>
     </Screen>
   );
-  const TweetDetails = () => (
+  const TweetDetails = ({ route }) => (
     <Screen>
-      <Text>TweetDetails</Text>
+      <Text>TweetDetails {route.params.id}</Text>
     </Screen>
   );
 
