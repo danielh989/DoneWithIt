@@ -2,11 +2,11 @@ import React from "react";
 import { View, StyleSheet, FlatList } from "react-native";
 
 import AppIcon from "../components/AppIcon";
-import { colors } from "../config/params";
+import params from "../config/params";
 import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
 
-function AccountScreen(props) {
+function AccountScreen() {
   const menuItems = [
     {
       title: "My Listings",
@@ -36,7 +36,7 @@ function AccountScreen(props) {
       <View style={styles.listContainer}>
         <FlatList
           data={menuItems}
-          keyExtractor={(menuItem) => menuItem.name}
+          keyExtractor={(item) => item.title}
           renderItem={({ item }) => {
             return (
               <ListItem
@@ -57,7 +57,7 @@ function AccountScreen(props) {
         <ListItem
           title="Log Out"
           ImageComponent={
-            <AppIcon name="logout" backgroundColor={colors.khaki} />
+            <AppIcon name="logout" backgroundColor={params.colors.khaki} />
           }
         />
       </View>

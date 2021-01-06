@@ -1,57 +1,17 @@
 import React from "react";
-import { Text, StyleSheet, Button } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer, useNavigation } from "@react-navigation/native";
+import { StyleSheet } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import Screen from "./app/components/Screen";
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
+import AccountScreen from "./app/screens/AccountScreen";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
+import AppIcon from "./app/components/AppIcon";
+import params from "./app/config/params";
+import ListingsScreen from "./app/screens/ListingsScreen";
 
 export default function App() {
-  const Link = () => {
-    const navigation = useNavigation();
-    return (
-      <Screen>
-        <Text>Tweets</Text>
-        <Button
-          title="View Tweet"
-          onPress={() => navigation.navigate("TweetDetails", { id: 1 })}
-        ></Button>
-      </Screen>
-    );
-  };
-
-  const Tweets = ({ navigation }) => (
-    <Screen>
-      <Link></Link>
-    </Screen>
-  );
-  const TweetDetails = ({ route }) => (
-    <Screen>
-      <Text>TweetDetails {route.params.id}</Text>
-    </Screen>
-  );
-
-  const Stack = createStackNavigator();
-  const StackNavigator = () => (
-    <Stack.Navigator
-      screenOptions={{ headerStyle: { backgroundColor: "dodgerblue" } }}
-    >
-      <Stack.Screen name="Tweets" component={Tweets} />
-      <Stack.Screen
-        options={({ route }) => ({ title: "Tweet Id: " + route.params.id })}
-        name="TweetDetails"
-        component={TweetDetails}
-        options={{ headerStyle: { backgroundColor: "tomato" } }}
-      />
-    </Stack.Navigator>
-  );
-
-  const Account = () => (
-    <Screen>
-      <Text>Account</Text>
-    </Screen>
-  );
   const Tab = createBottomTabNavigator();
   const TabNavigator = () => (
     <Tab.Navigator
@@ -65,29 +25,32 @@ export default function App() {
       <Tab.Screen
         options={{
           tabBarIcon: ({ size, color }) => (
-            <MaterialCommunityIcons
-              name="home"
-              size={size}
-              color={color}
-            ></MaterialCommunityIcons>
+            <MaterialCommunityIcons name="home" size={size} color={color} />
           ),
         }}
         name="Feed"
-        component={Tweets}
+        component={ListingsScreen}
       ></Tab.Screen>
+
       <Tab.Screen
         options={{
           tabBarIcon: ({ size, color }) => (
-            <MaterialCommunityIcons
-              name="account"
-              size={size}
-              color={color}
-            ></MaterialCommunityIcons>
+            <AppIcon name="plus-circle" size={size * 2} color={"red"} />
+          ),
+          title: "",
+        }}
+        name="Add"
+        component={ListingEditScreen}
+      ></Tab.Screen>
+
+      <Tab.Screen
+        options={{
+          tabBarIcon: ({ size, color }) => (
+            <MaterialCommunityIcons name="account" size={size} color={color} />
           ),
         }}
-        name="Feed"
         name="Account"
-        component={StackNavigator}
+        component={AccountScreen}
       ></Tab.Screen>
     </Tab.Navigator>
   );
