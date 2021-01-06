@@ -18,7 +18,9 @@ function AppTextInput({
         style={styles.icon}
         size={20}
       ></MaterialCommunityIcons>
-      <TextInput {...otherProps}>{children}</TextInput>
+      <TextInput style={styles.text} {...otherProps}>
+        {children}
+      </TextInput>
     </View>
   );
 }
@@ -29,11 +31,14 @@ const styles = StyleSheet.create({
     backgroundColor: params.colors.lightgrey,
     borderRadius: 10,
     marginVertical: 10,
-    height: 45,
+    paddingHorizontal: 10,
     flexDirection: "row",
   },
   icon: {
     marginRight: 10,
+  },
+  text: {
+    paddingVertical: 8,
   },
 });
 

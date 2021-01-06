@@ -10,6 +10,7 @@ import ListingEditScreen from "./app/screens/ListingEditScreen";
 import AppIcon from "./app/components/AppIcon";
 import params from "./app/config/params";
 import ListingsScreen from "./app/screens/ListingsScreen";
+import AuthNavigator from "./app/navigation/AuthNavigator";
 
 export default function App() {
   const Tab = createBottomTabNavigator();
@@ -56,7 +57,7 @@ export default function App() {
   );
   return (
     <NavigationContainer>
-      <TabNavigator />
+      <AuthNavigator />
     </NavigationContainer>
   );
 }

@@ -3,6 +3,7 @@ import { FlatList } from "react-native-gesture-handler";
 
 import Card from "../components/Card";
 import Screen from "../components/Screen";
+import { useNavigation } from "@react-navigation/native";
 
 function ListingsScreen(props) {
   const items = [
@@ -24,6 +25,7 @@ function ListingsScreen(props) {
         keyExtractor={(item) => item.title}
         renderItem={({ item }) => (
           <Card
+            onPress={() => console.log("Pressed")}
             title={item.title}
             subtitle={item.subtitle}
             image={item.image}
