@@ -67,13 +67,13 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     justifyContent: "center",
     height: 100,
-    width: 100,
+    marginRight: 10,
     overflow: "hidden",
-    marginLeft: 10,
+    width: 100,
   },
   image: {
-    width: "100%",
     height: "100%",
+    width: "100%",
   },
 });
 export default ImageInput;
