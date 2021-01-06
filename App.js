@@ -11,6 +11,7 @@ import AppIcon from "./app/components/AppIcon";
 import params from "./app/config/params";
 import ListingsScreen from "./app/screens/ListingsScreen";
 import AuthNavigator from "./app/navigation/AuthNavigator";
+import navigationTheme from "./app/navigation/navigationTheme";
 
 export default function App() {
   const Tab = createBottomTabNavigator();
@@ -56,7 +57,7 @@ export default function App() {
     </Tab.Navigator>
   );
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navigationTheme}>
       <AuthNavigator />
     </NavigationContainer>
   );
