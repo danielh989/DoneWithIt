@@ -87,7 +87,7 @@ export default function App() {
         }}
         name="Feed"
         name="Account"
-        component={Account}
+        component={StackNavigator}
       ></Tab.Screen>
     </Tab.Navigator>
   );
