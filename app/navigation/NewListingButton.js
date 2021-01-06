@@ -11,7 +11,7 @@ function NewListingButton({ onPress }) {
       <TouchableWithoutFeedback onPress={onPress}>
         <MaterialCommunityIcons
           name="plus-circle"
-          size={35}
+          size={45}
           color={params.colors.white}
         ></MaterialCommunityIcons>
       </TouchableWithoutFeedback>

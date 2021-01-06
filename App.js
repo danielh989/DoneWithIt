@@ -13,8 +13,10 @@ import ListingsScreen from "./app/screens/ListingsScreen";
 import AuthNavigator from "./app/navigation/AuthNavigator";
 import navigationTheme from "./app/navigation/navigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
+import apiClient from "./app/api/client";
 
 export default function App() {
+  apiClient();
   return (
     <NavigationContainer theme={navigationTheme}>
       <AppNavigator />
