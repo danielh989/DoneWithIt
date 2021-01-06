@@ -7,18 +7,13 @@ import AppIcon from "../components/AppIcon";
 import AccountScreen from "../screens/AccountScreen";
 import ListingEditScreen from "../screens/ListingEditScreen";
 import ListingsScreen from "../screens/ListingsScreen";
+import AccountNavigator from "./AccountNavigator";
 import FeedNavigator from "./FeedNavigator";
+import NewListingButton from "./NewListingButton";
 function AppNavigator(props) {
   const Tab = createBottomTabNavigator();
   return (
-    <Tab.Navigator
-      tabBarOptions={{
-        activeBackgroundColor: "tomato",
-        activeTintColor: "white",
-        inactiveBackgroundColor: "#eee",
-        inactiveTintColor: "black",
-      }}
-    >
+    <Tab.Navigator>
       <Tab.Screen
         options={{
           tabBarIcon: ({ size, color }) => (
@@ -30,12 +25,11 @@ function AppNavigator(props) {
       />
 
       <Tab.Screen
-        options={{
-          tabBarIcon: ({ size, color }) => (
-            <AppIcon name="plus-circle" size={size * 2} color={"red"} />
+        options={({ navigation }) => ({
+          tabBarButton: () => (
+            <NewListingButton onPress={() => navigation.navigate("Add")} />
           ),
-          title: "",
-        }}
+        })}
         name="Add"
         component={ListingEditScreen}
       />
@@ -47,7 +41,7 @@ function AppNavigator(props) {
           ),
         }}
         name="Account"
-        component={AccountScreen}
+        component={AccountNavigator}
       />
     </Tab.Navigator>
   );

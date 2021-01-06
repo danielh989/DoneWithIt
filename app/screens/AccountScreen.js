@@ -6,7 +6,7 @@ import params from "../config/params";
 import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
 
-function AccountScreen() {
+function AccountScreen({ navigation }) {
   const menuItems = [
     {
       title: "My Listings",
@@ -17,6 +17,7 @@ function AccountScreen() {
     },
     {
       title: "My Messages",
+      targetScreen: "MyMessages",
       icon: {
         name: "email",
         backgroundColor: params.colors.secondary,
@@ -41,6 +42,7 @@ function AccountScreen() {
             return (
               <ListItem
                 title={item.title}
+                onPress={() => navigation.navigate(item.targetScreen)}
                 ImageComponent={
                   <AppIcon
                     title={item.title}
@@ -56,6 +58,7 @@ function AccountScreen() {
       <View style={{ backgroundColor: params.colors.white }}>
         <ListItem
           title="Log Out"
+          onPress={() => console.log("Logged out")}
           ImageComponent={
             <AppIcon name="logout" backgroundColor={params.colors.khaki} />
           }

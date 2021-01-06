@@ -14,7 +14,7 @@ function ListingsScreen({ navigation }) {
     {
       title: "Listing 2",
       subtitle: "200",
-      image: require("../assets/jacket.jpg"),
+      image: require("../assets/user.jpg"),
     },
   ];
   return (
