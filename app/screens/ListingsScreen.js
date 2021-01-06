@@ -3,18 +3,17 @@ import { FlatList } from "react-native-gesture-handler";
 
 import Card from "../components/Card";
 import Screen from "../components/Screen";
-import { useNavigation } from "@react-navigation/native";
 
-function ListingsScreen(props) {
+function ListingsScreen({ navigation }) {
   const items = [
     {
       title: "Listing 1",
-      subtitle: "Subtitle 1",
+      subtitle: "300",
       image: require("../assets/jacket.jpg"),
     },
     {
       title: "Listing 2",
-      subtitle: "Subtitle 2",
+      subtitle: "200",
       image: require("../assets/jacket.jpg"),
     },
   ];
@@ -25,9 +24,9 @@ function ListingsScreen(props) {
         keyExtractor={(item) => item.title}
         renderItem={({ item }) => (
           <Card
-            onPress={() => console.log("Pressed")}
+            onPress={() => navigation.navigate("ListingDetails", item)}
             title={item.title}
-            subtitle={item.subtitle}
+            subtitle={"$" + item.subtitle}
             image={item.image}
           />
         )}
