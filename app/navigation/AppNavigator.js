@@ -10,6 +10,7 @@ import ListingsScreen from "../screens/ListingsScreen";
 import AccountNavigator from "./AccountNavigator";
 import FeedNavigator from "./FeedNavigator";
 import NewListingButton from "./NewListingButton";
+import routes from "./routes";
 function AppNavigator(props) {
   const Tab = createBottomTabNavigator();
   return (
@@ -20,17 +21,19 @@ function AppNavigator(props) {
             <MaterialCommunityIcons name="home" size={size} color={color} />
           ),
         }}
-        name="Feed"
+        name={routes.FEED}
         component={FeedNavigator}
       />
 
       <Tab.Screen
         options={({ navigation }) => ({
           tabBarButton: () => (
-            <NewListingButton onPress={() => navigation.navigate("Add")} />
+            <NewListingButton
+              onPress={() => navigation.navigate(routes.LISTING_EDIT_SCREEN)}
+            />
           ),
         })}
-        name="Add"
+        name={routes.LISTING_EDIT_SCREEN}
         component={ListingEditScreen}
       />
 
@@ -40,7 +43,7 @@ function AppNavigator(props) {
             <MaterialCommunityIcons name="account" size={size} color={color} />
           ),
         }}
-        name="Account"
+        name={routes.ACCOUNT}
         component={AccountNavigator}
       />
     </Tab.Navigator>

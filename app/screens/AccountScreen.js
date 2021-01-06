@@ -5,6 +5,7 @@ import AppIcon from "../components/AppIcon";
 import params from "../config/params";
 import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
+import routes from "../navigation/routes";
 
 function AccountScreen({ navigation }) {
   const menuItems = [
@@ -17,7 +18,7 @@ function AccountScreen({ navigation }) {
     },
     {
       title: "My Messages",
-      targetScreen: "MyMessages",
+      targetScreen: routes.MY_MESSAGES,
       icon: {
         name: "email",
         backgroundColor: params.colors.secondary,
