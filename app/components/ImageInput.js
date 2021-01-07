@@ -12,7 +12,6 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import params from "../config/params";
 
 function ImageInput({ imageUri, onChangeImage }) {
-  console.log(onChangeImage);
   useEffect(() => {
     requestPermission();
   }, []);
