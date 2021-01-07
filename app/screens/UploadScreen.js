@@ -1,11 +1,16 @@
 import React from "react";
 import { View, StyleSheet, Modal } from "react-native";
 import AppText from "../components/AppText";
+import Progress from "react-native-progress";
+import params from "../config/params";
 function UploadScreen({ progress = 0, visible = false }) {
   return (
     <Modal visible={visible}>
       <View style={styles.container}>
-        <AppText>{progress * 100}%</AppText>
+        <Progress.Bar
+          progress={progress}
+          color={params.colors.primary}
+        ></Progress.Bar>
       </View>
     </Modal>
   );
