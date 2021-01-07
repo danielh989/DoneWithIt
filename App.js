@@ -7,13 +7,6 @@ import AppNavigator from "./app/navigation/AppNavigator";
 import listings from "./app/api/listings";
 
 export default function App() {
-  listings.getListings().then((response) => {
-    if (!response.ok) {
-      console.log(response.problem);
-    } else {
-      console.log(response);
-    }
-  });
   return (
     <NavigationContainer theme={navigationTheme}>
       <AppNavigator />
