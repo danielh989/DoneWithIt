@@ -16,7 +16,7 @@ const store = async (key, value) => {
       value,
       timestamp: Date.now(),
     };
-    await AsyncStorage.setItem(prefix + key, JSON.stringify(value));
+    await AsyncStorage.setItem(prefix + key, JSON.stringify(item));
   } catch (error) {
     console.log(error);
   }
@@ -26,6 +26,7 @@ const get = async (key) => {
   try {
     const value = await AsyncStorage.getItem(prefix + key);
     const item = JSON.parse(value);
+    console.log("async item ", item);
     if (!item) return null;
     if (isExpired(item)) {
       //Consciously breaking (CQS)
