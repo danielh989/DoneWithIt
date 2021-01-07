@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { FlatList } from "react-native";
 
 import Card from "../components/Card";
@@ -8,25 +8,15 @@ import routes from "../navigation/routes";
 import listingsApi from "../api/listings";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
-import params from "../config/params";
+import useApi from "../hooks/useApi";
 
 function ListingsScreen({ navigation }) {
-  const [listings, setListings] = useState([]);
-  const [error, setError] = useState();
-  const [loading, setLoading] = useState();
-
+  const { error, data: listings, loading, request: loadListings } = useApi(
+    listingsApi.getListings
+  );
   useEffect(() => {
     loadListings();
   }, []);
-
-  const loadListings = async () => {
-    setLoading(true);
-    const response = await listingsApi.getListings();
-    if (!response.ok) return setError(true);
-    setLoading(false);
-    setError(false);
-    setListings(response.data);
-  };
 
   return (
     <Screen>
