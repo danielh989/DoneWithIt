@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FlatList } from "react-native";
 
 import Card from "../components/Card";
@@ -11,6 +11,7 @@ import AppButton from "../components/AppButton";
 import useApi from "../hooks/useApi";
 
 function ListingsScreen({ navigation }) {
+  const [refreshing, setRefreshing] = useState(false);
   const getListingsApi = useApi(listingsApi.getListings);
   useEffect(() => {
     getListingsApi.request();
