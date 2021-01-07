@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { ActivityIndicator, FlatList } from "react-native";
+import { FlatList } from "react-native";
 
 import Card from "../components/Card";
+import ActivityIndicator from "../components/ActivityIndicator";
 import Screen from "../components/Screen";
 import routes from "../navigation/routes";
 import listingsApi from "../api/listings";
@@ -29,18 +30,13 @@ function ListingsScreen({ navigation }) {
 
   return (
     <Screen>
-      <ActivityIndicator
-        animating={true}
-        size={"large"}
-        color={params.colors.lightgrey}
-      />
       {error && (
         <>
           <AppText>Couldn's retrieve the listings.</AppText>
           <AppButton title="Retry" onPress={loadListings}></AppButton>
         </>
       )}
-
+      <ActivityIndicator visible={loading} />
       <FlatList
         data={listings}
         keyExtractor={(item) => item.title}
