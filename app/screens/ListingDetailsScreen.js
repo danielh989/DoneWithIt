@@ -8,12 +8,16 @@ import ListingsScreen from "./ListingsScreen";
 
 function ListingDetailsScreen({ route }) {
   const listing = route.params;
+  console.log(listing.images[0]);
   return (
     <View>
-      <Image style={styles.image} source={listing.image}></Image>
+      <Image
+        style={styles.images}
+        source={{ uri: listing.images[0].url }}
+      ></Image>
       <View style={styles.detailContainer}>
         <AppText style={styles.title}>{listing.title}</AppText>
-        <AppText style={styles.price}>{"$" + listing.subtitle}</AppText>
+        <AppText style={styles.price}>{"$" + listing.price}</AppText>
       </View>
       <View style={styles.listItem}>
         <ListItem
