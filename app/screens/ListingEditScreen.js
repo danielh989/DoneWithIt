@@ -13,12 +13,21 @@ import {
 import FormImagePicker from "../components/Forms/FormImagePicker";
 import Screen from "../components/Screen";
 import useLocation from "../hooks/useLocation";
+import UploadScreen from "./UploadScreen";
 
 function ListingEditScreen(props) {
+  const [uploadVisible, setUploadVisible] = useState(false);
+  const [progress, setProgress] = useState(0);
   const location = useLocation();
 
   const handleSubmit = async (listing) => {
-    const result = await listingsApi.addListing({ ...listing, location });
+    setUploadVisible(true);
+    const result = await listingsApi.addListing(
+      { ...listing, location },
+      (progress) => setProgress(progress)
+    );
+    setUploadVisible(false);
+
     if (!result.ok) return alert("Could not save the listing.");
     alert("Success");
   };
@@ -42,6 +51,7 @@ function ListingEditScreen(props) {
   ];
   return (
     <Screen>
+      <UploadScreen visible={uploadVisible} progress={progress} />
       <AppForm
         initialValues={{
           title: "",
