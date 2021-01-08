@@ -1,5 +1,6 @@
 import React from "react";
 import * as Yup from "yup";
+import jwtDecode from "jwt-decode";
 
 import {
   ErrorMessage,
@@ -22,7 +23,8 @@ function LoginScreen(props) {
     const result = await authApi.login(email, password);
     if (!result.ok) return console.log(setLoginFailed(true));
     setLoginFailed(false);
-    console.log(result.data);
+    const user = jwtDecode(result.data);
+    console.log(user);
   };
   return (
     <Screen>
