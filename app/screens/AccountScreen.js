@@ -6,8 +6,12 @@ import params from "../config/params";
 import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
 import routes from "../navigation/routes";
+import { useContext } from "react";
+import AuthContext from "../auth/context";
 
 function AccountScreen({ navigation }) {
+  const { user, setUser } = useContext(AuthContext);
+
   const menuItems = [
     {
       title: "My Listings",
@@ -29,8 +33,8 @@ function AccountScreen({ navigation }) {
     <Screen style={{ backgroundColor: params.colors.lightgrey }}>
       <View style={{ backgroundColor: params.colors.white }}>
         <ListItem
-          title="Danielle Johns"
-          subtitle="danielle@aol.com"
+          title={user.name}
+          subtitle={user.email}
           image={require("../assets/user.jpg")}
         />
       </View>
@@ -59,7 +63,7 @@ function AccountScreen({ navigation }) {
       <View style={{ backgroundColor: params.colors.white }}>
         <ListItem
           title="Log Out"
-          onPress={() => console.log("Logged out")}
+          onPress={() => setUser(null)}
           ImageComponent={
             <AppIcon name="logout" backgroundColor={params.colors.khaki} />
           }
