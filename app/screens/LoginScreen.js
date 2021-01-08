@@ -1,19 +1,38 @@
 import React from "react";
 import * as Yup from "yup";
 
-import { AppFormField, AppForm, SubmitButton } from "../components/Forms";
+import {
+  ErrorMessage,
+  AppFormField,
+  AppForm,
+  SubmitButton,
+} from "../components/Forms";
 import Screen from "../components/Screen";
+import authApi from "../api/auth";
+import { useState } from "react";
+
+const validationSchema = Yup.object().shape({
+  email: Yup.string().required().email().label("Email"),
+  password: Yup.string().required().min(4).label("Password"),
+});
 
 function LoginScreen(props) {
-  const validationSchema = Yup.object().shape({
-    email: Yup.string().required().email().label("Email"),
-    password: Yup.string().required().min(4).label("Password"),
-  });
+  const [loginFailed, setLoginFailed] = useState(false);
+  const handleSubmit = async ({ email, password }) => {
+    const result = await authApi.login(email, password);
+    if (!result.ok) return console.log(setLoginFailed(true));
+    setLoginFailed(false);
+    console.log(result.data);
+  };
   return (
     <Screen>
+      <ErrorMessage
+        error="Invalid email and/or password"
+        visible={loginFailed}
+      ></ErrorMessage>
       <AppForm
         initialValues={{ email: "", password: "" }}
-        onSubmit={(values) => console.log({ values })}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <AppFormField
