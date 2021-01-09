@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Keyboard, Alert } from "react-native";
 import { AppForm, AppFormField, SubmitButton } from "./Forms";
-import sendNotification from "../notif/notifications";
+import appNotifications from "../notif/notifications";
 
 import messagesApi from "../api/messages";
 function ContactSellerForm({ listing }) {
@@ -18,7 +18,7 @@ function ContactSellerForm({ listing }) {
 
     resetForm();
 
-    sendNotification("Awesome!", "Message recieved!");
+    appNotifications.sendNotification("Awesome!", "Message recieved!");
   };
 
   return (
