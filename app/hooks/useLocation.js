@@ -14,7 +14,7 @@ export default () => {
     };
 
     useEffect(() => {
-      getUserLocation();
+      getUserLocation;
     }, []);
     return location;
   } catch (error) {
