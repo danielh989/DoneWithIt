@@ -1,20 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Yup from "yup";
 
-import { AppFormField, AppForm, SubmitButton } from "../components/Forms";
+import {
+  AppFormField,
+  AppForm,
+  SubmitButton,
+  ErrorMessage,
+} from "../components/Forms";
 import Screen from "../components/Screen";
+import authApi from "../api/auth";
+import usersApi from "../api/users";
+import useAuth from "../hooks/useAuth";
+
+const validationSchema = Yup.object().shape({
+  email: Yup.string().required().email().label("Email"),
+  name: Yup.string().required().min(1).label("Name"),
+  password: Yup.string().required().min(4).label("Password"),
+});
 
 function RegisterScreen(props) {
-  const validationSchema = Yup.object().shape({
-    email: Yup.string().required().email().label("Email"),
-    name: Yup.string().required().min(1).label("Name"),
-    password: Yup.string().required().min(4).label("Password"),
-  });
+  const [error, setError] = useState();
+  const auth = useAuth();
+
+  const handleSubmit = async (userInfo) => {
+    console.log(userInfo);
+    const result = await usersApi.register(userInfo);
+    if (!result.ok) {
+      if (result.data) setError(result.data.error);
+      else {
+        setError("An unexpected error ocurred");
+        console.log(result);
+      }
+      return;
+    }
+
+    const { data: authToken } = await authApi.login(
+      userInfo.email,
+      userInfo.password
+    );
+    auth.logIn(authToken);
+  };
   return (
     <Screen>
+      <ErrorMessage error={error} visible={error} />
       <AppForm
         initialValues={{ email: "", password: "", name: "" }}
-        onSubmit={(values) => console.log({ values })}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <AppFormField
