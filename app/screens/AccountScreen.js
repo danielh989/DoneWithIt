@@ -69,7 +69,7 @@ function AccountScreen({ navigation }) {
       <View style={{ backgroundColor: params.colors.white }}>
         <ListItem
           title="Log Out"
-          onPress={() => handleLogout}
+          onPress={handleLogout}
           ImageComponent={
             <AppIcon name="logout" backgroundColor={params.colors.khaki} />
           }
