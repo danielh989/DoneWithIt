@@ -9,7 +9,7 @@ import routes from "../navigation/routes";
 import useAuth from "../hooks/useAuth";
 
 function AccountScreen({ navigation }) {
-  const { user, logOut } = useAuth();
+  const { user } = useAuth();
 
   const menuItems = [
     {
@@ -62,7 +62,7 @@ function AccountScreen({ navigation }) {
       <View style={{ backgroundColor: params.colors.white }}>
         <ListItem
           title="Log Out"
-          onPress={logOut}
+          onPress={useAuth().logOut}
           ImageComponent={
             <AppIcon name="logout" backgroundColor={params.colors.khaki} />
           }
