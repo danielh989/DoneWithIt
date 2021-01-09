@@ -6,16 +6,10 @@ import params from "../config/params";
 import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
 import routes from "../navigation/routes";
-import authStorage from "../auth/storage";
 import useAuth from "../hooks/useAuth";
 
 function AccountScreen({ navigation }) {
-  const { user, setUser } = useAuth();
-
-  const handleLogout = () => {
-    setUser(null);
-    authStorage.removeToken();
-  };
+  const { user, logOut } = useAuth();
 
   const menuItems = [
     {
@@ -68,7 +62,7 @@ function AccountScreen({ navigation }) {
       <View style={{ backgroundColor: params.colors.white }}>
         <ListItem
           title="Log Out"
-          onPress={handleLogout}
+          onPress={logOut}
           ImageComponent={
             <AppIcon name="logout" backgroundColor={params.colors.khaki} />
           }
