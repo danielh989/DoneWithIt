@@ -6,12 +6,11 @@ import params from "../config/params";
 import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
 import routes from "../navigation/routes";
-import { useContext } from "react";
-import AuthContext from "../auth/context";
 import authStorage from "../auth/storage";
+import useAuth from "../hooks/useAuth";
 
 function AccountScreen({ navigation }) {
-  const { user, setUser } = useContext(AuthContext);
+  const { user, setUser } = useAuth();
 
   const handleLogout = () => {
     setUser(null);
