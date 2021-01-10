@@ -1,10 +1,13 @@
-import { FlatList, ImageComponent, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import React, { useState } from "react";
 
 import ListItem from "../components/ListItem";
+// @ts-ignore
 import ListItemActions from "../components/ListItemActions";
+// @ts-ignore
 import ListItemSeparator from "../components/ListItemSeparator";
 import Screen from "../components/Screen";
+import { MessageProps } from "../types";
 
 const initialMessages = [
   {
@@ -20,11 +23,11 @@ const initialMessages = [
     image: require("../assets/user.jpg"),
   },
 ];
-function MessagesScreen(props) {
+function MessagesScreen() {
   const [messages, setMessages] = useState(initialMessages);
   const [refreshing, setRefreshing] = useState(false);
 
-  const handleDelete = (message) => {
+  const handleDelete = (message: MessageProps) => {
     const newMessages = messages.filter((m) => m.id != message.id);
     setMessages(newMessages);
     return message.id;

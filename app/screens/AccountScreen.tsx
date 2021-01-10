@@ -1,14 +1,19 @@
+import React from "react";
 import { FlatList, StyleSheet, View } from "react-native";
 
+// @ts-ignore
 import AppIcon from "../components/AppIcon";
 import ListItem from "../components/ListItem";
-import { ListItemProps } from "../types";
-import React from "react";
 import Screen from "../components/Screen";
+// @ts-ignore
 import params from "../config/params";
+// @ts-ignore
 import routes from "../navigation/routes";
+// @ts-ignore
 import useAuth from "../hooks/useAuth";
+import { ListItemProps } from "../types";
 
+//FIXME: navigation type
 function AccountScreen({ navigation }) {
   const { user } = useAuth();
 
@@ -50,8 +55,8 @@ function AccountScreen({ navigation }) {
                 onPress={() => navigation.navigate(item.targetScreen)}
                 ImageComponent={
                   <AppIcon
-                    backgroundColor={item.icon.backgroundColor}
-                    name={item.icon.name}
+                    backgroundColor={item.icon?.backgroundColor}
+                    name={item.icon?.name}
                   />
                 }
               />

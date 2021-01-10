@@ -1,12 +1,14 @@
-import { Image, StyleSheet, TouchableHighlight, View } from "react-native";
-
-import AppText from "./AppText";
-import ListItemActions from "./ListItemActions";
-import { ListItemProps } from "../types";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React from "react";
+import { Image, StyleSheet, TouchableHighlight, View } from "react-native";
+// @ts-ignore
 import Swipeable from "react-native-gesture-handler/Swipeable";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
+// @ts-ignore
 import params from "../config/params";
+// @ts-ignore
+import AppText from "./AppText";
+import { ListItemProps } from "../types";
 
 function ListItem(props: ListItemProps) {
   return (

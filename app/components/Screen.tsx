@@ -1,7 +1,7 @@
 import { SafeAreaView, StyleSheet } from "react-native";
-
 import Constants from "expo-constants";
 import React from "react";
+
 import { ScreenProps } from "../types";
 
 function Screen(props: ScreenProps) {
