@@ -1,36 +1,30 @@
-import React from "react";
-import { View, StyleSheet, Image, TouchableHighlight } from "react-native";
-import Swipeable from "react-native-gesture-handler/Swipeable";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Image, StyleSheet, TouchableHighlight, View } from "react-native";
 
-import params from "../config/params";
 import AppText from "./AppText";
 import ListItemActions from "./ListItemActions";
+import { ListItemProps } from "../types";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import React from "react";
+import Swipeable from "react-native-gesture-handler/Swipeable";
+import params from "../config/params";
 
-function ListItem({
-  title,
-  subtitle,
-  ImageComponent,
-  image,
-  onPress,
-  renderRightActions,
-}) {
+function ListItem(props: ListItemProps) {
   return (
-    <Swipeable renderRightActions={renderRightActions}>
+    <Swipeable renderRightActions={props.renderRightActions}>
       <TouchableHighlight
         underlayColor={params.colors.lightgrey}
-        onPress={onPress}
+        onPress={props.onPress}
       >
         <View style={styles.container}>
-          {ImageComponent}
-          {image && <Image style={styles.image} source={image} />}
+          {props.ImageComponent}
+          {props.image && <Image style={styles.image} source={props.image} />}
           <View style={styles.textContainer}>
             <AppText style={styles.title} numberOfLines={2}>
-              {title}
+              {props.title}
             </AppText>
-            {subtitle && (
+            {props.subtitle && (
               <AppText numberOfLines={1} style={styles.subtitle}>
-                {subtitle}{" "}
+                {props.subtitle}{" "}
               </AppText>
             )}
           </View>
@@ -43,9 +37,9 @@ function ListItem({
 
 const styles = StyleSheet.create({
   container: {
-    padding: 15,
-    flexDirection: "row",
     alignItems: "center",
+    flexDirection: "row",
+    padding: 15,
   },
   image: { height: 60, width: 60, borderRadius: 30 },
   textContainer: { marginLeft: 15, justifyContent: "center", flex: 1 },

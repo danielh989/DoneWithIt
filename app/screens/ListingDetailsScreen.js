@@ -1,16 +1,16 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
-import { Image } from "react-native-expo-image-cache";
+import { ScrollView, StyleSheet, View } from "react-native";
 
 import AppText from "../components/AppText";
 import ContactSellerForm from "../components/ContactSellerForm";
+import { Image } from "react-native-expo-image-cache";
 import ListItem from "../components/ListItem";
+import React from "react";
 import params from "../config/params";
 
 function ListingDetailsScreen({ route }) {
   const listing = route.params;
   return (
-    <View>
+    <ScrollView>
       <Image
         style={styles.image}
         uri={listing.images[0].url}
@@ -29,7 +29,7 @@ function ListingDetailsScreen({ route }) {
         />
       </View>
       <ContactSellerForm listing={listing} />
-    </View>
+    </ScrollView>
   );
 }
 

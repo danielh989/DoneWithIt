@@ -1,17 +1,18 @@
-import React from "react";
-import { View, StyleSheet, FlatList } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 
 import AppIcon from "../components/AppIcon";
-import params from "../config/params";
 import ListItem from "../components/ListItem";
+import { ListItemProps } from "../types";
+import React from "react";
 import Screen from "../components/Screen";
+import params from "../config/params";
 import routes from "../navigation/routes";
 import useAuth from "../hooks/useAuth";
 
 function AccountScreen({ navigation }) {
   const { user } = useAuth();
 
-  const menuItems = [
+  const menuItems: Array<ListItemProps> = [
     {
       title: "My Listings",
       icon: {
@@ -49,7 +50,6 @@ function AccountScreen({ navigation }) {
                 onPress={() => navigation.navigate(item.targetScreen)}
                 ImageComponent={
                   <AppIcon
-                    title={item.title}
                     backgroundColor={item.icon.backgroundColor}
                     name={item.icon.name}
                   />
