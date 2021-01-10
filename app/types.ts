@@ -1,5 +1,15 @@
 import { ImageSourcePropType } from "react-native";
 
+export interface AppIconProps {
+  backgroundColor: string;
+  name: string;
+}
+
+export interface MessageProps {
+  id: number;
+  description?: string;
+  title?: string;
+}
 export interface ListItemProps {
   image?: ImageSourcePropType;
   ImageComponent?: object;
@@ -7,11 +17,6 @@ export interface ListItemProps {
   renderRightActions?: any;
   subtitle?: string;
   title: string;
-}
-
-export interface AppIconProps {
-  backgroundColor: string;
-  name: string;
 }
 
 export interface ListItemProps {
